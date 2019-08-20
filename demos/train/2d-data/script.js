@@ -120,7 +120,7 @@ function testModel(model, inputData, normalizationData) {
 
   // 绘制到图表，对比预测准确率
   tfvis.render.scatterplot(
-    { name: "Model Predictions vs Original Data" },
+    { name: "预测值和原始值对比" },
     {
       values: [originalPoints, predictedPoints],
       series: ["original", "predicted"]
@@ -144,11 +144,11 @@ async function run() {
   }));
 
   tfvis.render.scatterplot(
-    { name: "Horsepower v MPG" },
+    { name: "发动机马力 和 耗油量（英里每加仑） 的关系图" },
     { values },
     {
-      xLabel: "Horsepower",
-      yLabel: "MPG",
+      xLabel: "发动机马力",
+      yLabel: "耗油量",
       height: 300
     }
   );
@@ -163,7 +163,7 @@ async function run() {
 
   // 训练模型
   await trainModel(model, inputs, labels);
-  console.log("Done Training");
+  console.log("训练结束！");
 
   // 测试模型准确率
   testModel(model, data, tensorData);
