@@ -83,11 +83,10 @@ async function trainModel(model, inputs, labels) {
     batchSize,
     epochs,
     shuffle: true,
-    callbacks: tfvis.show.fitCallbacks(
-      { name: "Training Performance" },
-      ["loss", "mse"],
-      { height: 200, callbacks: ["onEpochEnd"] }
-    )
+    callbacks: tfvis.show.fitCallbacks({ name: "训练展示" }, ["loss", "mse"], {
+      height: 200,
+      callbacks: ["onEpochEnd"]
+    })
   });
 }
 
