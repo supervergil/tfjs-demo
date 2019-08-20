@@ -41,7 +41,7 @@ function convertToTensor(data) {
     const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
     const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
 
-    // 数据标准化
+    // 数据归一化
     const inputMax = inputTensor.max();
     const inputMin = inputTensor.min();
     const labelMax = labelTensor.max();
@@ -154,7 +154,7 @@ async function run() {
 
   // 搭建模型
   const model = createModel();
-  tfvis.show.modelSummary({ name: "Model Summary" }, model);
+  tfvis.show.modelSummary({ name: "模型结构" }, model);
 
   // 将数据转换为tensorflow张量格式
   const tensorData = convertToTensor(data);
